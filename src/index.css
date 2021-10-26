@@ -1,0 +1,30 @@
+#header, #Hireus, #platforms, #GitRepo {
+    min-height: 60vh;
+}
+
+/* Special Box Effect  Starts */
+.box-body{
+    margin: 0;
+    height: 200px;
+}
+
+.box-main{
+    position: absolute;
+    top: 50%;
+    left: 34%;
+}
+
+.box-container{
+    Width: 200px;
+    height: 250px;
+    display: inline-block;
+    overflow: hidden;
+}
+
+.box-letters{
+    font-size: 8cm;
+    line-height: 250px;
+    position: relative;
+    left: -160px;
+    transition: all .25s linear;
+}

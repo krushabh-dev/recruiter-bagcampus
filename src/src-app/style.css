@@ -1,0 +1,9 @@
+body {
+    background: #f2f7ffd4;
+}
+
+@media (min-width: 767.98px){
+.dashboardone{
+    padding-left: 19rem;
+}
+}

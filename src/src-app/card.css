@@ -1,0 +1,99 @@
+.h1, .h2, .h3, .h4, .h5, .h6, h1, h2, h3, h4, h5, h6 {
+    margin-top: 0;
+    margin-bottom: .5rem;
+    font-weight: 700;
+    line-height: 1.2;
+    color: #25396f;
+}
+
+.text-muted {
+    color: #7c8db5!important;
+}
+
+body {
+    margin: 0;
+    font-size: 1rem;
+    font-weight: 400;
+    line-height: 1.5;
+    color: #607080;
+    background-color: #f2f7ff;
+    -webkit-text-size-adjust: 100%;
+    -webkit-tap-highlight-color: rgba(0,0,0,0);
+}
+
+.card {
+  margin-bottom: 2.2rem;
+  border: none;
+}
+.card.card-statistic {
+  box-shadow: 1px 2px 5px rgba(47, 170, 244, 0.5);
+  background: linear-gradient(180deg, #25a6f1, #54b9ff);
+}
+.card.card-statistic .card-title {
+  text-transform: uppercase;
+  color: #fff;
+  letter-spacing: 0.8px;
+  font-weight: 400;
+  font-size: 1.3rem;
+  margin-bottom: 0;
+  margin-top: 5px;
+}
+.card.card-statistic .card-right p {
+  font-size: 1.5rem;
+  color: #fff;
+  margin-bottom: 0;
+}
+.card.card-statistic .card-right span.green {
+  color: #6fff6f;
+}
+.card.card-statistic .card-right span.red {
+  color: #ff7979;
+}
+.card.card-statistic .chart-wrapper {
+  height: 100px;
+}
+.card .card-header {
+  border: none;
+}
+.card .card-header h4 {
+  font-size: 1.2rem;
+  font-weight: 700;
+}
+.card .card-header ~ .card-body {
+  padding-top: 0;
+}
+.card .card-content {
+  position: relative;
+}
+.card .card-title {
+  font-size: 1.2rem;
+}
+.card .card-body {
+  padding: 1.5rem;
+}
+.card .card-heading {
+  color: #555;
+  font-size: 1.5rem;
+}
+.card .card-img-overlay {
+  background-color: rgba(0, 0, 0, 0.6);
+}
+.card .card-img-overlay p {
+  color: #eee;
+}
+.card .card-img-overlay .card-title {
+  color: #fff;
+}
+
+
+button.create-alert-btn {
+  margin-top: 30px;
+    -webkit-box-shadow: 0 1.25rem 2.1875rem 0 rgb(241 165 1 / 10%);
+    box-shadow: 0 1.25rem 2.1875rem 0 rgb(241 165 1 / 10%);
+    background: #ffd485;
+    text-align: -webkit-center;
+    margin-bottom: -0.6rem;
+    border: aqua;
+    width: 100%;
+    padding: 10px;
+}
