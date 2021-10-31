@@ -35,6 +35,13 @@ class Home extends Component {
   render() {
     return (
       <>
+        {(() => {
+          if (this.state.user) {
+            if (this.state.user.emailVerified == false) {
+              return window.location.replace("http://localhost:3000/#/evs");
+            }
+          }
+        })()}
         {this.state.user ? <DashboardOne /> : <Login />}
         {/* <Login /> */}
         <section id="Home_Page"></section>
@@ -42,5 +49,5 @@ class Home extends Component {
     );
   }
 }
-
+ 
 export default Home;

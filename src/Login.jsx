@@ -54,6 +54,7 @@ class Login extends React.Component {
         console.log(
           "Error. ErrorCode" + errorCode + "errorMessage" + errorMessage
         );
+        alert("Error Occured : " + errorCode);
       });
   }
 

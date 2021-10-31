@@ -30,6 +30,7 @@ class SignIn extends React.Component {
         console.log(
           "Error. ErrorCode" + errorCode + "errorMessage" + errorMessage
         );
+        alert("An Error Occured: " + errorCode.toString());
       });
   }
 
@@ -82,7 +83,7 @@ class SignIn extends React.Component {
             <div className="form-footer">
               <div>
                 <span>Already have an account?</span>
-                <a href="http://localhost:3000/#/signin">Log In</a>
+                <a href="/">Log In</a>
               </div>
             </div>
           </div>

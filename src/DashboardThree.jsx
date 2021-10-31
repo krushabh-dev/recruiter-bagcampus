@@ -5,13 +5,20 @@ import {
   getAuth,
   RecaptchaVerifier,
   signInWithPhoneNumber,
+  updateProfile,
 } from "firebase/auth";
+import { getDatabase, ref, set } from "firebase/database";
 const auth = getAuth();
+const db = getDatabase();
 
-const DashboardThree = () => {
+const DashboardThree = (props) => {
+  const currentEmail = props.email;
+  const currentPhone = props.phone;
+  const currentDisplayName = props.displayName;
+
   const [Key, setKey] = useState({
     title: "",
-    pEmail: "",
+    cEmail: currentEmail,
     date: new Date(),
   });
 
@@ -31,8 +38,8 @@ const DashboardThree = () => {
   };
 
   const [pKey, setpKey] = useState({
-    pPhone: "",
-    pEmail: "",
+    pEmail: currentEmail,
+    pOname: currentDisplayName,
     date: new Date(),
   });
 
@@ -57,13 +64,64 @@ const DashboardThree = () => {
     return re.test(input_str);
   }
 
+  const intoDB = () => {
+    var phone = Key.cPhone;
+    var email = Key.cEmail;
+    var oname = Key.cOname
+    set(ref(db, "users/" + phone), {
+      username: oname,
+      email: email,
+      phone: phone,
+    })
+      .then(() => {
+        alert("Succesfully Updated.");
+        console.log("Succesfully Updated.");
+      })
+      .catch((error) => {
+        console.log("Error Occured : " + error);
+        alert("Error Occured : " + error);
+      });
+  }
+
+  function writeUserData(name, email, phone) {
+    // console.log(name + " " + email + " " + phone);
+    set(ref(db, "users/" + phone), {
+      username: name,
+      email: email,
+      phone: phone,
+    })
+      .then(() => {
+        alert("Succesfully Updated.");
+        console.log("Succesfully Updated.");
+      })
+      .catch((error) => {
+        console.log("Error Occured : " + error);
+        alert("Error Occured : " + error);
+      });
+  }
+
   const sendOTP = (e) => {
     var phone = pKey.pPhone;
-    var phone = "+91" + phone;
+    var DisplayName = pKey.pOname;
+    var email = pKey.pEmail;
+    var phoneNumber = "91" + phone;
     e.preventDefault();
-    if (!validatePhoneNumber(phone)) {
-      alert(phone + " is Invalid Data");
+    if (!validatePhoneNumber(phoneNumber)) {
+      alert(phoneNumber + " is Invalid Data");
     } else {
+      updateProfile(auth.currentUser, {
+        phoneNumber: phoneNumber,
+        displayName: DisplayName,
+      })
+        .then(() => {
+          //alert("Succesfully Updated.");
+        })
+        .catch((error) => {
+          alert("Error Occured : " + error);
+        });
+
+      writeUserData(DisplayName, email, phoneNumber);
+      //console.log(DisplayName + " " + email + " " + phoneNumber);
     }
   };
 
@@ -113,6 +171,7 @@ const DashboardThree = () => {
                             id="per-email"
                             name="pEmail"
                             value={pKey.pEmail}
+                            disabled
                             placeholder="Enter Your Email"
                           />
                         </div>
@@ -292,7 +351,7 @@ const DashboardThree = () => {
                             className="create-alert-btn"
                             data-toggle="modal"
                             data-target="#finalConfiModal"
-                            //onClick={ValidateForm}
+                            onClick={intoDB}
                           >
                             Save Changes
                           </button>

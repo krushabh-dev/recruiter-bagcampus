@@ -10,7 +10,7 @@ var uuid = "xxxx-xxxx-xx".replace(/[xy]/g, function (c) {
   return (c == "x" ? r : (r & 0x3) | 0x8).toString(16);
 });
 
-const DashboardTwo = () => {
+const DashboardTwo = (props) => {
   var date = new Date();
   date.setMonth(date.getMonth() + 1);
   var y = date.getFullYear() + "-" + date.getMonth() + "-" + date.getDate();

@@ -35,7 +35,14 @@ class RedirectPostJob extends Component {
   render() {
     return (
       <>
-        {this.state.user ? <DashboardTwo /> : <Login />}
+        {(() => {
+          if (this.state.user) {
+            if (this.state.user.emailVerified == false) {
+              return window.location.replace("http://localhost:3000/#/evs");
+            }
+          }
+        })()}
+        {this.state.user ? <DashboardTwo main={this.state.user} /> : <Login />}
         {/* <Login /> */}
         <section id="Home_Page"></section>
       </>

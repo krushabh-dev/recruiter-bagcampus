@@ -35,6 +35,13 @@ class RedirectEmailVerify extends Component {
   render() {
     return (
       <>
+        {(() => {
+          if (this.state.user) {
+            if (this.state.user.emailVerified == true) {
+              return window.location.replace("http://localhost:3000/#/");
+            }
+          }
+        })()}
         {this.state.user ? <EmailVerify /> : <Login />}
         {/* <Login /> */}
         <section id="Home_Page"></section>

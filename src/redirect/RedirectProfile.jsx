@@ -35,8 +35,27 @@ class RedirectProfile extends Component {
   render() {
     return (
       <>
-        {this.state.user ? <DashboardThree /> : <Login />}
+        {(() => {
+          if (this.state.user) {
+            if (this.state.user.emailVerified == false) {
+              return window.location.replace("http://localhost:3000/#/evs");
+            } else {
+              return console.log(this.state.user);
+            }
+          }
+        })()}
+
+        {this.state.user ? (
+          <DashboardThree
+            email={this.state.user.email}
+            phone={this.state.user.phoneNumber}
+            displayName={this.state.user.displayName}
+          />
+        ) : (
+          <Login />
+        )}
         {/* <Login /> */}
+        {}
         <section id="Home_Page"></section>
       </>
     );

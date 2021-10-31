@@ -5,22 +5,21 @@ import { getAuth, sendEmailVerification } from "firebase/auth";
 const auth = getAuth();
 
 const mailtra = () => {
-  const uverif = auth.emailVerified;
-  if (uverif == false) {
-    sendEmailVerification(auth.currentUser).then(() => {
-      console.log("Dear Candidate Please Check Mail");
+  sendEmailVerification(auth.currentUser)
+    .then(() => {
+      alert("Verification Email is Sent On Email");
+    })
+    .catch((err) => {
+      alert("An Error Occured : " + err);
     });
-  } else {
-    window.location.replace("http://localhost:3000/#/");
-  }
 };
 
 const EmailVerify = () => {
   return (
     <>
-      <div onLoad={mailtra}>
-        We Have Sent You Verification Email
-        <button onClick={mailtra}> Resend Password</button>
+      <div>
+        You Must Verify Your Email Address
+        <button onClick={mailtra}> Send Auth Link</button>
       </div>
       Already Have Verified?
     </>
