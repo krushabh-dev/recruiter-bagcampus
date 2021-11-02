@@ -103,7 +103,7 @@ class Login extends React.Component {
             <div className="form-footer">
               <div>
                 <span>Don't have an account?</span>{" "}
-                <a href="http://localhost:3000/#/signin">Sign Up</a>
+                <a href="https://dashboard.bagcampus.in/#/signin">Sign Up</a>
               </div>
             </div>
           </div>
