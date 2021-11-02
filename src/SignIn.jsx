@@ -21,7 +21,7 @@ class SignIn extends React.Component {
         const user = userCredential.user;
         console.log("Sign In:" + user);
         //redirect to email verification /evs
-        window.location.replace("http://localhost:3000/#/evs");
+        window.location.replace("https://dashboard.bagcampus.in/#/evs");
       })
       .catch((error) => {
         const errorCode = error.code;
