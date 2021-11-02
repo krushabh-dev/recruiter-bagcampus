@@ -38,7 +38,7 @@ class RedirectEmailVerify extends Component {
         {(() => {
           if (this.state.user) {
             if (this.state.user.emailVerified == true) {
-              return window.location.replace("http://localhost:3000/#/");
+              return window.location.replace("https://dashboard.bagcampus.in/#/");
             }
           }
         })()}
