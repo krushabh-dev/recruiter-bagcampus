@@ -38,7 +38,7 @@ class RedirectPostJob extends Component {
         {(() => {
           if (this.state.user) {
             if (this.state.user.emailVerified == false) {
-              return window.location.replace("http://localhost:3000/#/evs");
+              return window.location.replace("https://dashboard.bagcampus.in/#/evs");
             }
           }
         })()}
